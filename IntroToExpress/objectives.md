@@ -1,6 +1,5 @@
-#Introduction to Express
+#Our First Express App
 
-* * What is a framework? How is it different from a library?
-* * What is Express?
-* * Why are we using Express?
-* 
+* Review and existing app (DogDemo)
+* Review HTTP response/request lifecycle
+* Create our own Simple Express app!
