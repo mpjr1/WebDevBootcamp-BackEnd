@@ -21,3 +21,7 @@
 #Style the campgrounds page
 * Add a better header/title
 * Make campgrounds display in a grid
+
+#Style the Navbar and Form
+* Add Navbar to all pages
+* Style the new campgrounds page
