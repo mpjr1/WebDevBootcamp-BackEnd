@@ -11,3 +11,13 @@
 * Why are we using it?
 * Let's install it!
 
+# Our first Mongo Commans
+* mongod
+* mongo
+* help
+* show dbs
+* use
+* insert
+* find
+* update
+* remove
