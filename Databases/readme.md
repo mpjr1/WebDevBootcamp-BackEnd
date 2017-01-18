@@ -21,3 +21,9 @@
 * find
 * update
 * remove
+
+
+# Mongoose
+* What is Mongoose?
+* *Why are we using it?
+* Interact with a MongoDB using Mongoose
