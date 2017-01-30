@@ -13,23 +13,27 @@ app.set("view engine", "ejs");
 
 var campgroundSchema = new mongoose.Schema({
    name: String,
-   image: String
+   image: String,
+   description: String
 });
 
 var Campground = mongoose.model("Campground", campgroundSchema);
 
-// Campground.create(
-//     {
-//         name: "Granite Hill", 
-//         image: "https://farm4.staticflickr.com/3844/15335755172_33dec7e209.jpg"}
-//         , function(err, campground){
-//       if (err){
-//         console.log(err);
-//       } else {
-//           console.log("Newly Created Campground: ");
-//           console.log(campground);
-//       }
-//     });
+Campground.create(
+    {
+        name: "Granite Hill", 
+        image: "https://farm4.staticflickr.com/3844/15335755172_33dec7e209.jpg",
+        description: "This is a huge granite hill. No Bathrooms, no water. Beautiful granite."
+            
+    }
+        , function(err, campground){
+      if (err){
+        console.log(err);
+      } else {
+          console.log("Newly Created Campground: ");
+          console.log(campground);
+      }
+    });
 
 
     // var campgrounds = [
@@ -43,6 +47,8 @@ app.get("/", function(req, res){
      res.render("landing");
 });
 
+
+// INDEX - Show all campgrounds
 app.get("/campgrounds", function(req, res){
     //Get all campgrounds from DB
     Campground.find({}, function(err, allcampgrounds){
@@ -55,6 +61,8 @@ app.get("/campgrounds", function(req, res){
         
 });
 
+
+// CREATE - Add new campground to Database
 app.post("/campgrounds", function(req, res){
     //get data from form and add to campgrounds array
     var name = req.body.name;
@@ -63,16 +71,22 @@ app.post("/campgrounds", function(req, res){
     //Create new campground and save to database
     Campground.create(newCampground, function(err, newlyCreated){
         if(err){
-            console.log(err);
+          console.log(err);
         } else {
            res.redirect("/campgrounds");
         }
-    })
+    });
 });
 
 
+// NEW - Show form to create campground
 app.get("/campgrounds/new", function(req, res) {
     res.render("new");
+});
+
+
+app.get("/campgrounds/:id", function(req, res){
+    res.send("This will be the show page one day");
 });
 
 app.listen(process.env.PORT, process.env.IP, function(){
