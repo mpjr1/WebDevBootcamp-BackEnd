@@ -91,7 +91,20 @@ app.put("/blogs/:id", function(req, res){
             res.redirect("/blogs/" + req.params.id);
         }
     })
-})
+});
+
+// DELETE route
+app.delete("/blogs/:id", function(req, res){
+    //destry blog post
+    Blog.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            res.redirect("/blogs");
+        } else {
+            res.redirect("/blogs");
+        }
+    })
+    //redirect somewhere
+});
 
 
 app.listen(process.env.PORT, process.env.IP, function(){
