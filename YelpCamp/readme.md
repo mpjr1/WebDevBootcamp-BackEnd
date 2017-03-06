@@ -43,7 +43,9 @@
 * Use module.exports
 * Require everything correctly!
 
-
+#Add Seeds File
+* Add a seeds.js file
+* Run the seeds every time the server stards
 
 
 RESTFUL ROUTES
