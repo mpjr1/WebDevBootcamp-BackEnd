@@ -38,6 +38,14 @@
 * Show db.collection.drop()
 * Add a show route/template
 
+#Refactor Mongoose Code
+* Create a models directory
+* Use module.exports
+* Require everything correctly!
+
+
+
+
 RESTFUL ROUTES
 
 name      url        verb       description
