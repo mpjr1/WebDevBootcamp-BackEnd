@@ -1,0 +1,62 @@
+var mongoose = require("mongoose");
+var Campground = require("./models/campground");
+var Comment = require("./models/comment");
+
+var data = [
+    {
+        name:  "Cloud's Rest",
+        image: "https://farm3.staticflickr.com/2058/32163448053_79bf18abd3.jpg",
+        description: "bla bla bla"
+    },
+    
+    {
+        name:  "Mountain Lake Rest",
+        image: "https://farm7.staticflickr.com/6025/5982544974_a833969370.jpg",
+        description: "bla bla bla"
+    },
+    
+    {
+        name:  "Canyon Floor",
+        image: "https://farm5.staticflickr.com/4089/4952600040_19342714e1.jpg",
+        description: "bla bla bla"
+    }
+];
+
+
+function seedDB(){
+    // Remove all Campgrounds
+    Campground.remove({}, function(err){
+        if(err){
+            console.log(err);
+        } else {
+        
+        console.log("Removed Campgrounds! >:/");
+        //Add a few Campgrounds
+            data.forEach(function(seed){
+                 Campground.create(seed, function(err, campground){
+                     if (err){
+                         console.log(err);
+                     } else {
+                         console.log("Added a Campground");
+                         //Create a Comment
+                         Comment.create(
+                             {
+                                 text: "This place is great",
+                                 author: "David"
+                             }, function(err, comment){
+                                 if(err){
+                                     console.log(err);
+                                 } else {
+                                 campground.comments.push(comment);
+                                 campground.save();
+                                 console.log("Created new comment");
+                                 }
+                             });
+                     }
+                 });
+            });
+        }
+    });
+}
+
+module.exports = seedDB;
